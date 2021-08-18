@@ -1,5 +1,7 @@
+require 'benchmark'
+
 def find_shortest_string(arr)
-  # type your code in here
+  arr.min_by { |str| str.length }
 end
 
 if __FILE__ == $PROGRAM_NAME
@@ -18,7 +20,23 @@ if __FILE__ == $PROGRAM_NAME
 
   # Don't forget to add your own!
 
-  # BENCHMARK HERE
+  time1 = Benchmark.measure {
+    find_shortest_string(['flower', 'juniper'])
+  }
+  time2 = Benchmark.measure {
+    find_shortest_string([''])
+  }
+  time3 = Benchmark.measure {
+    find_shortest_string(['flower', 'juniper', 'lily', 'dadelion'])
+  }
+  time4 = Benchmark.measure {
+    find_shortest_string(%w(asdkfjh dkfjh askdfj ;asdlfjkh askl;dfjh asdfh jas;dfh jsdf asklfh jasklf asldf ;as jlaks jf;ash jdf;h jasdfkl;g jsd))
+  }
+
+  puts time1
+  puts time2
+  puts time3
+  puts time4
 end
 
 # Please add your pseudocode to this file

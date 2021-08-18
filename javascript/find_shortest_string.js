@@ -1,5 +1,18 @@
 function findShortestString(arr) {
-  // type your code here
+  // let smallest = arr[0]
+  // for (const word of arr) {
+  //   if (word.length < smallest.length) {
+  //     smallest = word
+  //   }
+  // }
+  // return smallest
+  
+  return arr.reduce((accum, currentValue) => {
+    console.log(accum, currentValue);
+    return currentValue.length < accum.length 
+    ? currentValue 
+    : accum;
+   }, arr[0])
 }
 
 if (require.main === module) {
